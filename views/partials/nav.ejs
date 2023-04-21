@@ -4,6 +4,10 @@
 </head>
 <body>
   <nav>
+    <div>
+      <a href="/profiles">Profiles</a>
+    </div>
+    <!-- LOGIN OPTIONS -->
     <% if (user) { %>
       <a href="/auth/logout" class="right">
         <button type="submit">Logout</button>
@@ -26,4 +30,5 @@
         data-logo_alignment="left"
       ></div>
     <% } %>
+    <!-- END LOGIN OPTIONS -->
   </nav>
