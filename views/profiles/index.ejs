@@ -1,13 +1,15 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
-<h1>Profiles</h1>
 
-<div class="profile-cards">
-  <% profiles.forEach(profile => { %>
-    <div class="profile-card">
-      <a href="/profiles/<%= profile._id %>"><%= profile.name %></a>
-    </div>
-  <% }) %>
-</div>
+<% if (user) { %>
+  <h1>Profiles</h1>
+  <div class="profile-cards">
+    <% profiles.forEach(profile => { %>
+      <div class="profile-card">
+        <a href="/profiles/<%= profile._id %>"><%= profile.name %></a>
+      </div>
+    <% }) %>
+  </div>
+<% } %> 
 
 <%- include('../partials/footer') %>
