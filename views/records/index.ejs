@@ -1,0 +1,18 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<h1><%= title %></h1>
+<div class="record-cards">
+  <% records.forEach(record => { %>
+
+    <div class="record-card">
+      <h2><%= record.title %></h2>
+      <p><%= record.artist %></p>
+      <p><%= record.year %></p>
+      <p><%= record.single %></p>
+    </div>
+
+  <% }) %>
+</div>
+
+<%- include('../partials/footer') %>

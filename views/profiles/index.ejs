@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <% if (user) { %>
-  <h1>Profiles</h1>
+  <h1><%= title %></h1>
   <div class="profile-cards">
     <% profiles.forEach(profile => { %>
       <div class="profile-card">

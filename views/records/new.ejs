@@ -1,0 +1,24 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<% if (user) { %>
+  <h2>Add a Record!</h2>
+  <form action="/records" method="POST">
+    <label>Title:
+      <input type="text" name="title" autocomplete="off">
+    </label>
+    <label>Artist:
+      <input type="text" name="artist" autocomplete="off">
+    </label>
+    <label>Year:
+      <input type="number" name="year" autocomplete="off">
+    </label>
+    <label>Single:
+      <input type="text" name="single" autocomplete="off">
+    </label>
+    <button type="submit">Add Record</button>
+  </form>
+<% } %>
+
+
+<%- include('../partials/footer') %>
