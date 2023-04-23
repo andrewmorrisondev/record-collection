@@ -38,8 +38,48 @@ function create(req, res) {
   })
 }
 
+function edit(req, res) {
+  Record.findById(req.params.recordId)
+  .then(record => {
+    res.render('records/edit', {
+      record,
+      title: "Edit Record"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+function update(req, res) {
+  Record.findById(req.params.recordId)
+  .then(record => {
+    if (record.owner.equals(req.user.profile._id)) {
+      console.log(req.body);
+      record.updateOne(req.body)
+      .then(() => {
+        res.redirect(`/records`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      })
+    } else {
+      console.log("Can't update a record that does not belong to you.")
+      res.redirect('/')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
   index,
   newRecord as new,
-  create
+  create,
+  edit,
+  update
 }

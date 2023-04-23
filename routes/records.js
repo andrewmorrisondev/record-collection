@@ -15,6 +15,12 @@ router.get('/new', recordsCtrl.new)
 // POST localhost:3000/records
 router.post('/', isLoggedIn, recordsCtrl.create)
 
+// GET localhost:3000/records/:recordId/edit
+router.get('/:recordId/edit', isLoggedIn, recordsCtrl.edit)
+
+// PUT localhost:3000/records/:recordId
+router.put('/:recordId', isLoggedIn, recordsCtrl.update)
+
 export {
   router
 }
