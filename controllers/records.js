@@ -56,7 +56,6 @@ function update(req, res) {
   Record.findById(req.params.recordId)
   .then(record => {
     if (record.owner.equals(req.user.profile._id)) {
-      console.log(req.body);
       record.updateOne(req.body)
       .then(() => {
         res.redirect(`/records`)
@@ -76,10 +75,34 @@ function update(req, res) {
   })
 }
 
+function deleteRecord(req, res) {
+  Record.findById(req.params.recordId)
+  .then(record => {
+    if (record.owner.equals(req.user.profile._id)) {
+      record.deleteOne(req.body)
+      .then(() => {
+        res.redirect(`/records`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      })
+    } else {
+      console.log("Can't delete a record that does not belong to you.")
+      res.redirect('/')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
   index,
   newRecord as new,
   create,
   edit,
-  update
+  update,
+  deleteRecord as delete
 }

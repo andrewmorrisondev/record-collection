@@ -21,6 +21,9 @@ router.get('/:recordId/edit', isLoggedIn, recordsCtrl.edit)
 // PUT localhost:3000/records/:recordId
 router.put('/:recordId', isLoggedIn, recordsCtrl.update)
 
+// DELETE localhost:3000/records/:recordId
+router.delete('/:recordId', recordsCtrl.delete)
+
 export {
   router
 }
