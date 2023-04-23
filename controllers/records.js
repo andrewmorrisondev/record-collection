@@ -15,6 +15,21 @@ function index(req, res) {
   })
 }
 
+function show(req, res) {
+  Record.findById(req.params.recordId)
+  // .populate('owner')
+  .then(record => {
+    res.render('records/show', {
+      record,
+      title: `${record.title}`
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 function newRecord(req, res) {
   Record.find({})
   .then(records => {
@@ -100,6 +115,7 @@ function deleteRecord(req, res) {
 
 export {
   index,
+  show,
   newRecord as new,
   create,
   edit,

@@ -9,6 +9,9 @@ const router = Router()
 // GET localhost:3000/records
 router.get('/', recordsCtrl.index)
 
+// GET localhost:3000/records/:recordId
+router.get('/:recordId', recordsCtrl.show)
+
 // GET localhost:3000/meals/new
 router.get('/new', recordsCtrl.new)
 
@@ -22,7 +25,7 @@ router.get('/:recordId/edit', isLoggedIn, recordsCtrl.edit)
 router.put('/:recordId', isLoggedIn, recordsCtrl.update)
 
 // DELETE localhost:3000/records/:recordId
-router.delete('/:recordId', recordsCtrl.delete)
+router.delete('/:recordId', isLoggedIn, recordsCtrl.delete)
 
 export {
   router

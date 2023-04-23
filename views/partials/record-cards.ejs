@@ -1,0 +1,25 @@
+<div class="record-cards">
+  <% records.forEach(record => { %>
+
+    <div class="record-card">
+      <h2><%= record.title %></h2>
+      <p><%= record.artist %></p>
+      <p><%= record.year %></p>
+      <p><%= record.single %></p>
+      <p><%= record.owner.name %></p>
+      <a href="/records/<%= record._id %>/">
+        <button class="btn">Show me the Deets</button>
+      </a>
+      <br>
+      <% if (record.owner.equals(user?.profile._id)) { %>
+        <a href="/records/<%= record._id %>/edit">
+          <button class="btn">Edit this record!</button>
+        </a>
+        <form action="/records/<%= record._id %>?_method=DELETE" class="delete-form"method="POST">
+          <button type="submit">Delete this record!</button>
+        </form>
+      <% } %>
+    </div>
+
+  <% }) %>
+</div>
