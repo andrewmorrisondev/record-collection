@@ -1,0 +1,18 @@
+.profile-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.profile-card {
+  background-color: grey;
+  min-width: 250px;
+}
+
+.profile-avatar {
+  display: flex;
+}
+
+.profile-stats {
+  display: flex;
+}

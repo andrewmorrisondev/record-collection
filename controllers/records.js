@@ -122,7 +122,7 @@ function addComment(req, res) {
     req.body.commenter = req.user.profile._id
     record.comments.push(req.body)
     record.save()
-    .then(()=> {
+    .then(() => {
       res.redirect(`/records/${record._id}`)
     })
     .catch(err => {
