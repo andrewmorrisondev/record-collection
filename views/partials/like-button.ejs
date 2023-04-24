@@ -1,0 +1,16 @@
+<% let likeIndex = -1 %>
+<% if (record.likes.some((like, idx) => {
+  if (like.liker._id.equals(user?.profile._id)) {
+    likeIndex = idx
+    return true
+  }
+  return false
+})) { %>
+  <form action="/records/<%= record._id %>/like/<%= record.likes[likeIndex]._id %>?_method=DELETE" class="delete-form"method="POST">
+    <button type="submit">Unlike</button>
+  </form>
+<% } else { %>
+  <form action="/records/<%= record._id %>/like" method="POST">
+    <button type="submit">Like</button>
+  </form>
+<% } %>

@@ -19,7 +19,8 @@ function show(req, res) {
   Record.findById(req.params.recordId)
   .populate([
     {path: "owner"},
-    {path: "comments.commenter"}
+    {path: "comments.commenter"},
+    {path: "likes.liker"}
   ])
   .then(record => {
     res.render('records/show', {
@@ -203,6 +204,50 @@ function deleteComment(req, res) {
   })
 }
 
+function likeRecord(req, res) {
+  Record.findById(req.params.recordId)
+  .then(record => {
+    req.body.liker = req.user.profile._id
+    record.likes.push(req.body)
+    record.save()
+    .then(() => {
+      res.redirect(`/records/${record._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/records')
+    })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/records')
+    })
+}
+
+function deleteLike(req, res) {
+  Record.findById(req.params.recordId)
+  .then(record => {
+    const like = record.likes.id(req.params.likeId)
+    if (like.liker.equals(req.user.profile._id)) {
+      record.likes.remove(like)
+      record.save()
+      .then(() => {
+        res.redirect(`/records/${record._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/records')
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/records')
+  })
+}
+
 
 export {
   index,
@@ -215,5 +260,7 @@ export {
   addComment,
   editComment,
   updateComment,
-  deleteComment
+  deleteComment,
+  likeRecord,
+  deleteLike
 }

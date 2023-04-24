@@ -4,6 +4,10 @@ import { isLoggedIn } from '../middleware/middleware.js'
 
 const router = Router()
 
+// 
+// RECORDS
+// 
+
 // GET localhost:3000/records
 router.get('/', recordsCtrl.index)
 
@@ -25,6 +29,10 @@ router.put('/:recordId', isLoggedIn, recordsCtrl.update)
 // DELETE localhost:3000/records/:recordId
 router.delete('/:recordId', isLoggedIn, recordsCtrl.delete)
 
+// 
+// COMMENTS
+// 
+
 // POST localhost:3000/records/:recordId/comments
 router.post('/:recordId/comments', isLoggedIn, recordsCtrl.addComment)
 
@@ -36,6 +44,16 @@ router.put('/:recordId/comments/:commentId', isLoggedIn, recordsCtrl.updateComme
 
 // DELETE records/:recordId/comments/:commentId
 router.delete('/:recordId/comments/:commentId', isLoggedIn, recordsCtrl.deleteComment)
+
+// 
+// LIKES
+// 
+
+// POST records/:recordId/like
+router.post('/:recordId/like', isLoggedIn, recordsCtrl.likeRecord)
+
+// DELETE records/:recordId/like/:likeId
+router.delete('/:recordId/like/:likeId', isLoggedIn, recordsCtrl.deleteLike)
 
 export {
   router
