@@ -16,9 +16,11 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  console.log(req.params.recordId);
   Record.findById(req.params.recordId)
-  .populate('owner')
+  .populate([
+    {path: "owner"},
+    {path: "comments.commenter"}
+  ])
   .then(record => {
     res.render('records/show', {
       record,
@@ -113,6 +115,72 @@ function deleteRecord(req, res) {
   })
 }
 
+function addComment(req, res) {
+  Record.findById(req.params.recordId)
+  .then(record => {
+    req.body.commenter = req.user.profile._id
+    record.comments.push(req.body)
+    record.save()
+    .then(()=> {
+      res.redirect(`/records/${record._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/records')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/records')
+  })
+}
+
+function editComment(req, res) {
+  Record.findById(req.params.recordId)
+  .then(record => {
+    const comment = record.comments.id(req.params.commentId)
+    if (comment.commenter.equals(req.user.profile._id)) {
+      res.render('records/editComment', {
+        record, 
+        comment,
+        title: 'Update Comment'
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/records')
+  })
+}
+
+function updateComment(req, res) {
+  Record.findById(req.params.recordId)
+  .then(record => {
+    const comment = record.comments.id(req.params.commentId)
+    if (comment.commenter.equals(req.user.profile._id)) {
+      comment.set(req.body)
+      record.save()
+      .then(() => {
+        res.redirect(`/records/${record._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/records')
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/records')
+  })
+}
+
+
+
 export {
   index,
   show,
@@ -120,5 +188,8 @@ export {
   create,
   edit,
   update,
-  deleteRecord as delete
+  deleteRecord as delete,
+  addComment,
+  editComment,
+  updateComment
 }

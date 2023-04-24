@@ -1,0 +1,25 @@
+<% if (record.comments.length > 0) { %>
+  <div class="comments">
+    <h2>Comments</h2>
+    <% record.comments.forEach(comment => { %>
+      <% if (user) { %>
+        <p>
+          <%= comment.commenter.name %>: <%= comment.body %>
+          <% if (comment.commenter.equals(user?.profile._id)) { %>
+            <a href="/records/<%= record._id %>/comments/<%= comment._id %>/edit">
+              <button class="btn">Edit Comment</button>
+            </a>
+          <% } %> 
+        </p>
+      <% } else { %>
+        <p>
+          anonymous: <%= comment.body %>
+        </p>
+      <% } %>
+      <br>
+    <% }) %>
+  </div>
+<% } %>
+
+
+<!-- The first object {path: "owner"} is populating the owner on a taco. The second object: {path: "comments.author"} is populating the author on every comment on a taco. -->

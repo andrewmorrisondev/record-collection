@@ -1,0 +1,15 @@
+<% if (user) { %>
+  <div class="add-comment">
+    <h3>Add a comment</h3>
+    <form action="/records/<%= record._id %>/comments" method="POST">
+      <textarea
+      cols="30"
+      rows="5" 
+      type="text"
+      name="body" 
+      autocomplete="off"
+    ></textarea>
+  <button type="submit">Comment</button>
+    </form>
+  </div>
+<% } %>

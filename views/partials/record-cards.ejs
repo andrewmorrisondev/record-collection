@@ -6,6 +6,9 @@
       <p><%= record.artist %></p>
       <p><%= record.year %></p>
       <p><%= record.single %></p>
+      <% if (record.comments.length > 0) { %>
+        <p><%= record.comments.length %> Comments</p>
+      <% } %>
       <% if (user) { %>
         <p>Owner: <%= record.owner.name %></p>
       <% } %>

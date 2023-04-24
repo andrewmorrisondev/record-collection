@@ -4,8 +4,6 @@ import { isLoggedIn } from '../middleware/middleware.js'
 
 const router = Router()
 
-// ALL ROUTES in this file start with localhost:3000/records
-
 // GET localhost:3000/records
 router.get('/', recordsCtrl.index)
 
@@ -26,6 +24,15 @@ router.put('/:recordId', isLoggedIn, recordsCtrl.update)
 
 // DELETE localhost:3000/records/:recordId
 router.delete('/:recordId', isLoggedIn, recordsCtrl.delete)
+
+// POST localhost:3000/records/:recordId/comments
+router.post('/:recordId/comments', isLoggedIn, recordsCtrl.addComment)
+
+// GET localhost:3000/:recordId/comments/:commentId/edit
+router.get('/:recordId/comments/:commentId/edit', isLoggedIn, recordsCtrl.editComment)
+
+// PUT records/:recordId/comments/:commentId
+router.put('/:recordId/comments/:commentId', isLoggedIn, recordsCtrl.updateComment)
 
 export {
   router
