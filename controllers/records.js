@@ -179,6 +179,29 @@ function updateComment(req, res) {
   })
 }
 
+function deleteComment(req, res) {
+  Record.findById(req.params.recordId)
+  .then(record => {
+    const comment = record.comments.id(req.params.commentId)
+    if (comment.commenter.equals(req.user.profile._id)) {
+      record.comments.remove(comment)
+      record.save()
+      .then(() => {
+        res.redirect(`/records/${record._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/records')
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/records')
+  })
+}
 
 
 export {
@@ -191,5 +214,6 @@ export {
   deleteRecord as delete,
   addComment,
   editComment,
-  updateComment
+  updateComment,
+  deleteComment
 }

@@ -6,9 +6,16 @@
         <p>
           <%= comment.commenter.name %>: <%= comment.body %>
           <% if (comment.commenter.equals(user?.profile._id)) { %>
-            <a href="/records/<%= record._id %>/comments/<%= comment._id %>/edit">
-              <button class="btn">Edit Comment</button>
-            </a>
+            <form 
+            action="/records/<%= record._id %>/comments/<%= comment._id %>?_method=DELETE" 
+            method="POST"
+            class="inline"
+          >
+            <button class="btn" type="submit">Delete Comment</button>
+          </form>
+          <a href="/records/<%= record._id %>/comments/<%= comment._id %>/edit">
+            <button class="btn">Edit Comment</button>
+          </a>
           <% } %> 
         </p>
       <% } else { %>
@@ -20,6 +27,3 @@
     <% }) %>
   </div>
 <% } %>
-
-
-<!-- The first object {path: "owner"} is populating the owner on a taco. The second object: {path: "comments.author"} is populating the author on every comment on a taco. -->

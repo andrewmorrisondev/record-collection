@@ -34,6 +34,9 @@ router.get('/:recordId/comments/:commentId/edit', isLoggedIn, recordsCtrl.editCo
 // PUT records/:recordId/comments/:commentId
 router.put('/:recordId/comments/:commentId', isLoggedIn, recordsCtrl.updateComment)
 
+// DELETE records/:recordId/comments/:commentId
+router.delete('/:recordId/comments/:commentId', isLoggedIn, recordsCtrl.deleteComment)
+
 export {
   router
 }
