@@ -38,8 +38,60 @@ function show(req, res) {
   })
 }
 
+function follow(req, res) {
+  Profile.findById(req.params.profileId)
+  .then(profile => {
+    req.body.follower = req.user.profile._id
+    profile.followers.push(req.body.follower)
+    profile.save()
+    .then(() => {
+      res.redirect(`/profiles/${profile._id}`)
+    })
+      .catch(err => {
+      console.log(err)
+      res.redirect('/profiles')
+    })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/profiles')
+    })
+}
+
+function unfollow(req, res) {
+  Profile.findById(req.params.profileId)
+  .then(profile => {
+    Profile.findById(req.params.followerId)
+    .then(follower => {
+      if (follower._id.equals(req.user.profile._id)) {
+        profile.followers.remove(follower)
+        profile.save()
+        .then(() => {
+          res.redirect(`/profiles/${profile._id}`)
+        })
+        .catch(err => {
+          console.log(err)
+          res.redirect('/profiles')
+        })
+      } else {
+        throw new Error('🚫 Not authorized 🚫')
+      }
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/profiles')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
+  })
+}
+
 
 export {
   index,
-  show
+  show,
+  follow,
+  unfollow
 }
