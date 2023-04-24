@@ -3,7 +3,9 @@
   <p><%= record.artist %></p>
   <p><%= record.year %></p>
   <p><%= record.single %></p>
-  <p><%= record.owner.name %></p>
+  <% if (user) { %>
+    <p>Owner: <%= record.owner.name %></p>
+  <% } %>
   <% if (record.owner.equals(user?.profile._id)) { %>
     <a href="/records/<%= record._id %>/edit">
       <button class="btn">Edit this record!</button>

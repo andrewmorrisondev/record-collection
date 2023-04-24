@@ -2,8 +2,8 @@ import { Record } from "../models/record.js"
 
 function index(req, res) {
   Record.find({})
+  .populate('owner')
   .then(records => {
-    console.log(records);
     res.render('records/index', {
       records,
       title: "Records"
@@ -16,8 +16,9 @@ function index(req, res) {
 }
 
 function show(req, res) {
+  console.log(req.params.recordId);
   Record.findById(req.params.recordId)
-  // .populate('owner')
+  .populate('owner')
   .then(record => {
     res.render('records/show', {
       record,
@@ -42,7 +43,6 @@ function newRecord(req, res) {
 
 function create(req, res) {
   req.body.owner = req.user.profile._id
-  req.body.tasty = !!req.body.tasty
   Record.create(req.body)
   .then(record => {
     res.redirect('/records')

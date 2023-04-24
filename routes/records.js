@@ -9,11 +9,11 @@ const router = Router()
 // GET localhost:3000/records
 router.get('/', recordsCtrl.index)
 
+// GET localhost:3000/records/new
+router.get('/new', recordsCtrl.new)
+
 // GET localhost:3000/records/:recordId
 router.get('/:recordId', recordsCtrl.show)
-
-// GET localhost:3000/meals/new
-router.get('/new', recordsCtrl.new)
 
 // POST localhost:3000/records
 router.post('/', isLoggedIn, recordsCtrl.create)
