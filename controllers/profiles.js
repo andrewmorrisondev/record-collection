@@ -45,17 +45,22 @@ function follow(req, res) {
     profile.followers.push(req.body.follower)
     profile.save()
     .then(() => {
-      res.redirect(`/profiles/${profile._id}`)
-    })
-      .catch(err => {
-      console.log(err)
-      res.redirect('/profiles')
-    })
+      Profile.findById(req.body.follower)
+      .then(follower => {
+        follower.following.push(req.params.profileId)
+        follower.save()
+        res.redirect(`/profiles/${profile._id}`)
+      })
     })
     .catch(err => {
       console.log(err)
       res.redirect('/profiles')
     })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
+  })
 }
 
 function unfollow(req, res) {
@@ -67,6 +72,8 @@ function unfollow(req, res) {
         profile.followers.remove(follower)
         profile.save()
         .then(() => {
+          follower.following.remove(profile)
+          follower.save()
           res.redirect(`/profiles/${profile._id}`)
         })
         .catch(err => {

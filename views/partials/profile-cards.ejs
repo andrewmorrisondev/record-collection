@@ -9,13 +9,13 @@
             <p><%= profile.name %></p>
           </div>
           <div class="profile-stats">
-            <div>
-              <p>#ofposts</p>
-              <p>Records</p>
+            <div class="profile-followers">
+              <p><%= profile.followers.length %></p>
+              <p>Followers</p>
             </div>
-            <div>
-              <p>#oflikes</p>
-              <p>Likes</p>
+            <div class="profile-following">
+              <p><%= profile.following.length %></p>
+              <p>Following</p>
             </div>
           </div>
       <% } %>
