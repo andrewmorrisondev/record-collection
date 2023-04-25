@@ -1,0 +1,27 @@
+.records-show-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment {
+  display: flex;
+} 
+
+.comment-buttons {
+  display: flex;
+}
+
+.add-comment form {
+  display: flex;
+}

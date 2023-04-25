@@ -3,25 +3,23 @@
     <h2>Comments</h2>
     <% record.comments.forEach(comment => { %>
       <% if (user) { %>
-        <p>
-          <%= comment.commenter.name %>: <%= comment.body %>
+        <div class="comment">
+          <%= comment.commenter.name %>: <%= comment.body %>   
           <% if (comment.commenter.equals(user?.profile._id)) { %>
-            <form 
-            action="/records/<%= record._id %>/comments/<%= comment._id %>?_method=DELETE" 
-            method="POST"
-            class="inline"
-          >
-            <button class="btn" type="submit">Delete Comment</button>
-          </form>
-          <a href="/records/<%= record._id %>/comments/<%= comment._id %>/edit">
-            <button class="btn">Edit Comment</button>
-          </a>
+            <div class="comment-buttons">
+              <form action="/records/<%= record._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST"class="inline">
+                <button class="btn" type="submit">Delete Comment</button>
+              </form>
+              <a href="/records/<%= record._id %>/comments/<%= comment._id  %>/edit">
+                <button class="btn">Edit Comment</button>
+              </a> 
+            </div>
+        </div>
           <% } %> 
-        </p>
       <% } else { %>
-        <p>
-          anonymous: <%= comment.body %>
-        </p>
+        <div class="comment">
+          <p>anonymous: <%= comment.body %></p>
+        </div>
       <% } %>
       <br>
     <% }) %>

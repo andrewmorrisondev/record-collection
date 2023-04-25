@@ -1,9 +1,15 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/partials/record-cards.css"/>
+<link rel="stylesheet" href="/stylesheets/partials/comments.css"/>
 <%- include('../partials/nav') %>
 
-<%- include('../partials/record-card') %>
+<div class="records-show-content">
+  <%- include('../partials/record-card') %>
 
-<%- include('../partials/comments') %>
-<%- include('../partials/add-comment') %>
+  <div class="comment-container">
+    <%- include('../partials/comments') %>
+    <%- include('../partials/add-comment') %>
+  </div>
+</div>
 
 <%- include('../partials/footer') %>

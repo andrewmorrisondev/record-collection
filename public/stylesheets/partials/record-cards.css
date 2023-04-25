@@ -1,19 +1,19 @@
-.profile-cards {
+.record-cards {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.profile-card {
+.record-card {
   background-color: grey;
   min-width: 250px;
   max-width: 250px;
 }
 
-.profile-avatar {
+.record-avatar {
   display: flex;
 }
 
-.profile-stats {
+.record-stats {
   display: flex;
 }

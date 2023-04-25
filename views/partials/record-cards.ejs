@@ -2,10 +2,12 @@
   <% records.forEach(record => { %>
 
     <div class="record-card">
-      <h2><%= record.title %></h2>
-      <p><%= record.artist %></p>
-      <p><%= record.year %></p>
-      <p><%= record.single %></p>
+      <div class="record-info">
+        <h2><%= record.title %></h2>
+        <p><%= record.artist %></p>
+        <p><%= record.single %></p>
+        <p><%= record.year %></p>
+      </div>
       <% if (record.comments.length > 0) { %>
         <p><%= record.comments.length %> Comments</p>
       <% } %>

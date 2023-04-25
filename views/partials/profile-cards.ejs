@@ -3,21 +3,22 @@
     <div class="profile-card">
       <% if (profile.avatar) { %>
         <div class="profile-avatar">
-          <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar"/>
-          <p><%= profile.name %></p>
-        </div>
-        <div class="profile-stats">
-          <div>
-            <p>#ofposts</p>
-            <p>Records</p>
+            <a href="/profiles/<%= profile._id %>">
+              <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar"/>
+            </a>
+            <p><%= profile.name %></p>
           </div>
-          <div>
-            <p>#oflikes</p>
-            <p>Likes</p>
+          <div class="profile-stats">
+            <div>
+              <p>#ofposts</p>
+              <p>Records</p>
+            </div>
+            <div>
+              <p>#oflikes</p>
+              <p>Likes</p>
+            </div>
           </div>
-        </div>
       <% } %>
-      <a href="/profiles/<%= profile._id %>"></a>
     </div>
   <% }) %>
 </div>
