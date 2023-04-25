@@ -1,32 +1,7 @@
 <div class="record-cards">
   <% records.forEach(record => { %>
 
-    <div class="record-card">
-      <div class="record-info">
-        <h2><%= record.title %></h2>
-        <p><%= record.artist %></p>
-        <p><%= record.single %></p>
-        <p><%= record.year %></p>
-      </div>
-      <% if (record.comments.length > 0) { %>
-        <p><%= record.comments.length %> Comments</p>
-      <% } %>
-      <% if (user) { %>
-        <p>Owner: <%= record.owner.name %></p>
-      <% } %>
-      <a href="/records/<%= record._id %>/">
-        <button class="btn">Show me the Deets</button>
-      </a>
-      <br>
-      <% if (record.owner.equals(user?.profile._id)) { %>
-        <a href="/records/<%= record._id %>/edit">
-          <button class="btn">Edit this record!</button>
-        </a>
-        <form action="/records/<%= record._id %>?_method=DELETE" class="delete-form"method="POST">
-          <button type="submit">Delete this record!</button>
-        </form>
-      <% } %>
-    </div>
+    <%- include('../partials/record-card', {record: record}) %>
 
   <% }) %>
 </div>

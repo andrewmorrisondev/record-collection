@@ -1,0 +1,27 @@
+nav {
+  background-color: #f6f6f6;
+  color: #1a1a1a;
+  /* display: flex;
+  align-items: center; */
+  padding: 10px;
+  min-height: 40px;
+}
+
+/* CENTER */
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+}
+
+/* STUCK ON RIGHT */
+
+.profile-options {
+  float: right;
+  margin-top: -28px;
+}
+
+.g_id_signin {
+  float: right;
+  margin-top: -30px;
+}

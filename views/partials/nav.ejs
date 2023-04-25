@@ -4,43 +4,47 @@
 </head>
 <body>
   <nav>
-    <% if (user) { %>
-    <div>
-      <a href="/profiles">Profiles</a>
+    <div class="nav-links">
+      <% if (user) { %>
+        <div class="nav-profiles">
+          <a href="/profiles"><i class="fa-solid fa-address-card fa-2xl"></i></a>
+        </div>
+        <div class="nav-records-new">
+          <a href="/records/new"><i class="fa-solid fa-plus fa-2xl"></i></a>
+        </div>
+      <% } %>
+        <div class="nav-records">
+          <a href="/records"><i class="fa-solid fa-record-vinyl fa-2xl"></i></a>
+        </div>
     </div>
-    <div>
-      <a href="/records/new">+</a>
-    </div>
-    <% } %>
-    <div>
-      <a href="/records">Records</a>
-    </div>
-
-    <!-- LOGIN OPTIONS -->
-    <% if (user) { %>
-      <a href="/auth/logout" class="right">
-        <button type="submit">Logout</button>
-      </a>
-      <a href="/profiles/<%= user.profile._id %>">
-        <button type="submit">My Profile</button>
-      </a>
-    <% } else { %>
-      <div 
-        id="g_id_onload"
-        data-client_id="<%= googleClientID %>"
-        data-login_uri="/auth/google"
-        data-auto_prompt="false"
-        data-prompt_parent_id="g_id_onload"
-      ></div>
-      <div 
-        class="g_id_signin right"
-        data-type="standard"
-        data-size="large"
-        data-theme="outline"
-        data-text="sign_in_with"
-        data-shape="rectangular"
-        data-logo_alignment="left"
-      ></div>
+        
+      <% if (user) { %>
+        <div class="profile-options">
+        <!-- LOGIN OPTIONS -->
+        <a href="/auth/logout" class="right">
+          <button type="submit">Logout</button>
+        </a>
+        <a href="/profiles/<%= user.profile._id %>">
+          <button type="submit">My Profile</button>
+        </a>
+      <% } else { %>
+        <div 
+          id="g_id_onload"
+          data-client_id="<%= googleClientID %>"
+          data-login_uri="/auth/google"
+          data-auto_prompt="false"
+          data-prompt_parent_id="g_id_onload"
+        ></div>
+        <div 
+          class="g_id_signin right"
+          data-type="standard"
+          data-size="large"
+          data-theme="outline"
+          data-text="sign_in_with"
+          data-shape="rectangular"
+          data-logo_alignment="left"
+        ></div>
+      </div>
     <% } %>
     <!-- END LOGIN OPTIONS -->
   </nav>
