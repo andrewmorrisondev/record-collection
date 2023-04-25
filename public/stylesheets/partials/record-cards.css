@@ -1,13 +1,24 @@
 .record-cards {
+  /* SWITCH TO GRID */
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .record-card {
-  background-color: grey;
+  position: relative;
+  display: flex;
+  justify-content: center;
   min-width: 250px;
   max-width: 250px;
+  margin: 10px;
+
+  border: 10px solid rgb(0, 0, 0);
+  border-radius: 5%;
+}
+
+.record-art img {
+  border-radius: 5%;
 }
 
 .record-buttons {
@@ -15,5 +26,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* right: 0; */
+  right: 0;
+  top: 0;
+
+  padding: 4px;
+  border-radius: 10%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.record-info {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  h2 {
+    font-size: clamp(50%, 40px, 100%);
+  }
+}
+
+.hidden {
+  display: none;
 }

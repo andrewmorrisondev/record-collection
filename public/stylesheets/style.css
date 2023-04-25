@@ -2,10 +2,10 @@ html {
   box-sizing: border-box;
 }
 
-html * {
+/* html * {
   border: 1px solid red;
   box-sizing: content-box;
-}
+} */
 
 /* The Universal Selector */
 *, /* All elements*/

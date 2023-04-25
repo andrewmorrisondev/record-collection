@@ -1,6 +1,6 @@
 <div class="record-card">
   <!-- BUTTONS -->
-  <div class="record-buttons">
+  <div class="record-buttons hidden">
     <a href="/records/<%= record._id %>/">
       <i class="fa-solid fa-circle-info"></i>
     </a>
@@ -18,17 +18,10 @@
     <img src="https://picsum.photos/500/500" alt="albumart">
   </div>
   <!-- INFO -->
-  <div class="record-info">
+  <div class="record-info hidden">
     <h2><%= record.title %></h2>
     <p><%= record.artist %></p>
-    <p><%= record.single %></p>
     <p><%= record.year %></p>
   </div>
-  <% if (record.comments.length > 0) { %>
-    <p><%= record.comments.length %> Comments</p>
-  <% } %>
-  <% if (user) { %>
-    <p>Owner: <%= record.owner.name %></p>
-  <% } %>
 </div>
 

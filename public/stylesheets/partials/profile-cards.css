@@ -6,14 +6,39 @@
 
 .profile-card {
   background-color: grey;
-  min-width: 250px;
-  max-width: 250px;
+  width: 250px;
+  height: 200px;
+  margin: 10px;
+
+  border: 10px solid rgb(0, 0, 0);
+  border-radius: 5%;
 }
 
 .profile-avatar {
   display: flex;
+  align-items: center;
+
+  :first-child {
+    height: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    border: 4px solid white;
+    border-radius: 10%;
+  }
+
+  :last-child {
+    font-size: clamp(50%, 40px, 100%);
+  }
 }
 
 .profile-stats {
   display: flex;
+  justify-content: space-evenly;
+}
+
+.profile-followers, .profile-following {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }

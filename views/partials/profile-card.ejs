@@ -1,0 +1,25 @@
+<div class="profile-card">
+  <a href="/profiles/<%= profile._id %>">
+    <% if (profile.avatar) { %>
+
+      <div class="profile-avatar">
+        <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar"/>
+        <h2><%= profile.name %></h2>
+      </div>
+
+      <div class="profile-stats">
+
+        <div class="profile-followers">
+          <h1><%= profile.followers.length %></h1>
+          <p>Followers</p>
+        </div>
+
+        <div class="profile-following">
+          <h1><%= profile.following.length %></h1>
+          <p>Following</p>
+        </div>
+
+      </div>
+    <% } %>
+  </a>
+</div>
