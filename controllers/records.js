@@ -1,4 +1,5 @@
 import { Record } from "../models/record.js"
+import { fetchAlbumInfo } from "../src/services/api.js"
 
 function index(req, res) {
   Record.find({})
@@ -45,14 +46,18 @@ function newRecord(req, res) {
 }
 
 function create(req, res) {
-  req.body.owner = req.user.profile._id
-  Record.create(req.body)
-  .then(record => {
-    res.redirect('/records')
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/')
+  fetchAlbumInfo(req.body.artist, req.body.title)
+  .then(albumData => {
+    albumData.owner = req.user.profile._id
+    console.log(albumData)
+    Record.create(albumData)
+    .then(record => {
+      res.redirect('/records')
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
   })
 }
 
@@ -247,7 +252,6 @@ function deleteLike(req, res) {
     res.redirect('/records')
   })
 }
-
 
 export {
   index,
