@@ -15,6 +15,26 @@
 
   border: 10px solid rgb(0, 0, 0);
   border-radius: 5%;
+  background-color: black;
+}
+
+.like-record {
+  position: absolute;
+  margin-left: -224px;
+  margin-top: -22px;
+}
+
+.like-toggle {
+  border-radius: 100%;
+  border: none;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+
+}
+
+form {
+  cursor: pointer;
 }
 
 .record-art img {

@@ -40,13 +40,13 @@
   height: 40px;
 }
 
-form textarea {
+.add-comment form textarea {
   background-color: rgba(0,0,0,0.5);
   color: white;
   border: none;
 }
 
-form button {
+.add-comment form button {
   background-color: rgba(0,0,0,0.5);
   color: white;
   border: none;

@@ -216,16 +216,16 @@ function likeRecord(req, res) {
     record.likes.push(req.body)
     record.save()
     .then(() => {
-      res.redirect(`/records/${record._id}`)
+      res.redirect(`back`)
     })
     .catch(err => {
       console.log(err)
-      res.redirect('/records')
+      res.redirect('back')
     })
     })
     .catch(err => {
       console.log(err)
-      res.redirect('/records')
+      res.redirect('back')
     })
 }
 
@@ -237,11 +237,11 @@ function deleteLike(req, res) {
       record.likes.remove(like)
       record.save()
       .then(() => {
-        res.redirect(`/records/${record._id}`)
+        res.redirect(`back`)
       })
       .catch(err => {
         console.log(err)
-        res.redirect('/records')
+        res.redirect('back')
       })
     } else {
       throw new Error('🚫 Not authorized 🚫')
@@ -249,7 +249,7 @@ function deleteLike(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/records')
+    res.redirect('back')
   })
 }
 
