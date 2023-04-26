@@ -1,11 +1,15 @@
+<h2>Comments</h2>
 <% if (record.comments.length > 0) { %>
   <div class="comments">
-    <h2>Comments</h2>
     <% record.comments.forEach(comment => { %>
       <% if (user) { %>
+
         <div class="comment">
+
           <%= comment.commenter.name %>: <%= comment.body %>   
+
           <% if (comment.commenter.equals(user?.profile._id)) { %>
+
             <div class="comment-buttons">
               <a href="/records/<%= record._id %>/comments/<%= comment._id  %>/edit">
                 <i class="fa-solid fa-pen-to-square"></i>
@@ -14,14 +18,15 @@
                 <i class="fa-solid fa-trash-can" onclick="this.parentNode.submit()"></i>
               </form>
             </div>
+
         </div>
+
           <% } %> 
       <% } else { %>
         <div class="comment">
           <p>anonymous: <%= comment.body %></p>
         </div>
       <% } %>
-      <br>
     <% }) %>
   </div>
 <% } %>

@@ -7,21 +7,47 @@
 .comment-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .comments {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+
+  border-bottom: 1px solid black;
 }
 
 .comment {
   display: flex;
+  height: 24px;
+  justify-content: space-between;
 } 
 
 .comment-buttons {
   display: flex;
 }
 
+.add-comment {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
 .add-comment form {
   display: flex;
+  height: 40px;
+}
+
+form textarea {
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+}
+
+form button {
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
 }

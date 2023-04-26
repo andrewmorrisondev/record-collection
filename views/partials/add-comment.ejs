@@ -1,6 +1,5 @@
 <% if (user) { %>
   <div class="add-comment">
-    <h3>Add a comment</h3>
     <form action="/records/<%= record._id %>/comments" method="POST">
       <textarea
       cols="30"

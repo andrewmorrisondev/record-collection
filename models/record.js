@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const commentSchema = new Schema({
-  body: { type: String, required: true },
+  body: { type: String, required: true, maxLength: 20 },
   commenter: { type: Schema.Types.ObjectId, ref: "Profile"},
 })
 
