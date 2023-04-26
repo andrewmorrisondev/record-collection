@@ -22,7 +22,18 @@ nav {
   margin-top: -28px;
 }
 
+.nav-records-new {
+  padding: 0 30px;
+}
+
 .g_id_signin {
   float: right;
   margin-top: -30px;
+}
+
+.right button {
+  background-color: rgb(20,20,20);
+  color: white;
+  border: none;
+  border-radius: 5%;
 }
