@@ -7,10 +7,10 @@
   return false
 })) { %>
   <form action="/records/<%= record._id %>/like/<%= record.likes[likeIndex]._id %>?_method=DELETE" class="delete-form"method="POST">
-    <button class='like-toggle' type="submit">❤️</button>
+    <button class='like-toggle' type="submit"><i class="fa-solid fa-heart fa-lg" style="color: #ff69b4;"></i></i></button>
   </form>
 <% } else { %>
   <form action="/records/<%= record._id %>/like" method="POST">
-    <button class='like-toggle' type="submit">🤍</button>
+    <button class='like-toggle' type="submit"><i class="fa-solid fa-heart fa-lg" style="color: #ebebeb;"></i></button>
   </form>
 <% } %>
