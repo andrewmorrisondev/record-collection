@@ -4,7 +4,7 @@
 </head>
 <body>
   <nav>
-    <h1 id="logo">VYNL</h1>
+    <a href="https://github.com/andrewmorrisondev/record-collection"><h1 id="logo">VYNL</h1></a>
     <div class="nav-links">
       <% if (user) { %>
         <div class="nav-profiles">
@@ -26,8 +26,26 @@
           <button type="submit">Logout</button>
         </a>
       </div>
-    <% } %>
+    <% } else { %>
+      <div 
+        id="g_id_onload"
+        data-client_id="<%= googleClientID %>"
+        data-login_uri="/auth/google"
+        data-auto_prompt="false"
+        data-prompt_parent_id="g_id_onload"
+      ></div>
+      <div 
+        class="g_id_signin right"
+        data-type="icon"
+        data-size="large"
+        data-theme="filled-black"
+        data-text="sign_in_with"
+        data-shape="rectangular"
+        data-logo_alignment="left"
+      ></div>
+      <% } %>
     <!-- END LOGIN OPTIONS -->
   </nav>
   <div class="nav-spacer">
+  </div>
   </div>
