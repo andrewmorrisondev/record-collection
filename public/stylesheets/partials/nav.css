@@ -1,5 +1,5 @@
 nav {
-  background-color: hotpink;
+  background-color: #FF69B4;
   color: #1a1a1a;
   /* display: flex;
   align-items: center; */
@@ -41,6 +41,10 @@ nav {
 .g_id_signin {
   float: right;
   margin-top: -30px;
+}
+
+.right button {
+  margin-top: 4px;
 }
 
 .right button {
