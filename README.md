@@ -4,8 +4,8 @@
 
 VYNL is a social app built with the MEN stack. Show off your favorite records, discover your friends niche tastes. Learn something about your favorite new artist along the way.
 
-<img src="https://i.imgur.com/EiJjRN1.png"  width="600" height="640">
-<img src="https://i.imgur.com/woYPGJi.png"  width="300" height="640">
+<img src="https://i.imgur.com/EiJjRN1.png"  max-width="600" max-height="640">
+<img src="https://i.imgur.com/woYPGJi.png"  max-width="300" max-height="640">
 
 ## TheAudioDB API
 Hooking up to this API gives me access to a DB of pretty much every album released in the US. As a result, the `record-cards` auto-populate based off the information coming from `req.body`
