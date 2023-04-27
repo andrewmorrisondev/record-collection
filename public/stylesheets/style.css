@@ -34,3 +34,7 @@ main {
 .right {
   margin-left: auto;
 }
+
+textarea {
+  resize: none;
+}

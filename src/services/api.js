@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 async function fetchAlbumInfo(artist, album) {
-  console.log(artist, album)
   const options = {
     method: 'GET',
     url: 'https://theaudiodb.p.rapidapi.com/searchalbum.php',
@@ -24,6 +23,11 @@ async function fetchAlbumInfo(artist, album) {
       artist: response.data.album[0].strArtist,
       year: response.data.album[0].intYearReleased,
       art: response.data.album[0].strAlbumThumb,
+      bio: response.data.album[0].strDescriptionEN,
+      genre: response.data.album[0].strGenre,
+      label: response.data.album[0].strLabel,
+      mood: response.data.album[0].strMood,
+      style: response.data.album[0].strStyle,
       owner: undefined
     }
     return albumData

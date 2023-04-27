@@ -1,6 +1,6 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/show.css"/>
 <link rel="stylesheet" href="/stylesheets/partials/record-cards.css"/>
-<link rel="stylesheet" href="/stylesheets/partials/comments.css"/>
 <script defer type="text/javascript" src="/scripts/record-transition.js"></script>
 <%- include('../partials/nav') %>
 
@@ -8,9 +8,12 @@
   <%- include('../partials/record-card') %>
 
   <div class="comment-container">
-    <%- include('../partials/comments') %>
-    <%- include('../partials/add-comment') %>
+    <%- include('../partials/show/comments') %>
+    <%- include('../partials/show/add-comment') %>
   </div>
 </div>
+
+<%- include('../partials/show/data-card') %>
+<%- include('../partials/show/bio-card') %>
 
 <%- include('../partials/footer') %>
