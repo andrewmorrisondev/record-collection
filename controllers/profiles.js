@@ -49,7 +49,7 @@ function follow(req, res) {
       .then(follower => {
         follower.following.push(req.params.profileId)
         follower.save()
-        res.redirect(`/profiles/${profile._id}`)
+        res.redirect(`back`)
       })
     })
     .catch(err => {
@@ -74,7 +74,7 @@ function unfollow(req, res) {
         .then(() => {
           follower.following.remove(profile)
           follower.save()
-          res.redirect(`/profiles/${profile._id}`)
+          res.redirect(`back`)
         })
         .catch(err => {
           console.log(err)

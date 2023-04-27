@@ -1,11 +1,23 @@
 nav {
-  background-color: #f6f6f6;
+  background-color: hotpink;
   color: #1a1a1a;
   /* display: flex;
   align-items: center; */
   padding: 10px;
   min-height: 40px;
-  margin-bottom: 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.nav-spacer {
+  height: 70px;
+}
+
+#logo {
+  position: absolute;
+  margin-top: -7px;
 }
 
 /* CENTER */

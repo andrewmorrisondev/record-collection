@@ -48,16 +48,19 @@ function newRecord(req, res) {
 function create(req, res) {
   fetchAlbumInfo(req.body.artist, req.body.title)
   .then(albumData => {
-    albumData.owner = req.user.profile._id
-    console.log(albumData)
-    Record.create(albumData)
-    .then(record => {
-      res.redirect('/records')
-    })
-    .catch(err => {
-      console.log(err)
-      res.redirect('/')
-    })
+    if (albumData === undefined) {
+      res.redirect('/records/new')
+    } else {
+      albumData.owner = req.user.profile._id
+      Record.create(albumData)
+      .then(record => {
+        res.redirect('/records')
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      })
+    }
   })
 }
 
