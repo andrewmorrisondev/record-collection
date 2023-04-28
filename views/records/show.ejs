@@ -6,11 +6,13 @@
 
 <div class="records-show-content">
   <%- include('../partials/record-card') %>
-
-  <div class="comment-container">
-    <%- include('../partials/show/comments') %>
-    <%- include('../partials/show/add-comment') %>
-  </div>
+  
+  <% if (user) { %>
+    <div class="comment-container">
+      <%- include('../partials/show/comments') %>
+      <%- include('../partials/show/add-comment') %>
+    </div>
+  <% } %>
   
 </div>
 
