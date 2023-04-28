@@ -142,6 +142,8 @@ Most partials come with their own CSS file. Structuring my EJS and CSS in this w
 
 ![Imgur](https://i.imgur.com/gDqX4Ww.png)
 
+<sup><sup>[trello link](https://trello.com/b/msTr6CMz/record-collection)</sup></sup>
+
 ## Icebox User Stories
 [ ] - AA User I want to see an error message if my album was not added so that I know I need to try again.
 
