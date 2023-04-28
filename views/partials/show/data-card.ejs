@@ -11,5 +11,6 @@
   <% if (record.mood) { %>
     <p><strong>Mood:</strong><br><%= record.mood %></p>
   <% } %>
+  <p><strong>Added by: </strong><br><%= record.owner.name %></p>
   <p><strong>Likes:</strong><br><%= record.likes.length %></p>
 </div>
