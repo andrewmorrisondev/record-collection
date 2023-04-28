@@ -121,7 +121,7 @@ from `/records/show.ejs`
 Most partials come with their own CSS file. Structuring my EJS and CSS in this way makes the code incredibly easy to build on with very little risk of accidentally breaking features that I am not actively working on.
 
 ![EJS](https://i.imgur.com/6SniD7q.png)
-![CSS](https://i.imgur.com/ZMRqROi.png))
+![CSS](https://i.imgur.com/ZMRqROi.png)
 
 ## Technologies
 
@@ -143,6 +143,8 @@ Most partials come with their own CSS file. Structuring my EJS and CSS in this w
 ![Imgur](https://i.imgur.com/gDqX4Ww.png)
 
 ## Icebox User Stories
+[ ] - AA User I want to see an error message if 
+
 [ ] - AA User I want a nav button that takes me to a 'for you' page that shows all records by other users that you follow.
 
 [ ] - AA User I want to navigate to my profile and see a list of all records that I have liked.
