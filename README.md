@@ -86,8 +86,13 @@ function create(req, res) {
     if (albumData === undefined) {
       res.redirect('/records/new')
     } else {
-      albumData.owner = req.user.profile._id
-      Record.create(albumData)
+      Record.find({ title: albumData.title, artist: albumData.artist })
+      .then(records => {
+        if (records.length) {
+          res.redirect('/records/new')
+        } else {
+          albumData.owner = req.user.profile._id
+          Record.create(albumData)
 ```
 
 ## Highlights
@@ -96,12 +101,12 @@ function create(req, res) {
 Keeping my code `DRY` has become a point of pride, and its something that I am constantly working to improve upon. To keep my EJS clean, I made use of partials. In the following code, you can see `every element on the page is a partial` (some partials are exclusively made up of other partials!)
 <br>
 <br>
-from `/records/show.ejs`
+from `/views/records/show.ejs`
 
 ```
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/show.css"/>
 <link rel="stylesheet" href="/stylesheets/partials/record-cards.css"/>
-<link rel="stylesheet" href="/stylesheets/partials/comments.css"/>
 <script defer type="text/javascript" src="/scripts/record-transition.js"></script>
 <%- include('../partials/nav') %>
 
@@ -109,10 +114,14 @@ from `/records/show.ejs`
   <%- include('../partials/record-card') %>
 
   <div class="comment-container">
-    <%- include('../partials/comments') %>
-    <%- include('../partials/add-comment') %>
+    <%- include('../partials/show/comments') %>
+    <%- include('../partials/show/add-comment') %>
   </div>
+  
 </div>
+
+<%- include('../partials/show/data-card') %>
+<%- include('../partials/show/bio-card') %>
 
 <%- include('../partials/footer') %>
 ```
