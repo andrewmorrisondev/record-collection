@@ -7,21 +7,19 @@
 .comment-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
+  padding: 0px 20px;
 }
 
 .comments {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  flex-grow: 1;
-
   border-bottom: 1px solid black;
+  padding: 10px;
 }
 
 .comment {
   display: flex;
-  height: 24px;
   justify-content: space-between;
 } 
 
@@ -32,7 +30,7 @@
 .add-comment {
   display: flex;
   flex-direction: column;
-  align-content: space-between;
+  justify-content: flex-end;
 }
 
 .add-comment form {
@@ -44,6 +42,7 @@
   background-color: rgba(0,0,0,0.5);
   color: white;
   border: none;
+  flex-grow: 1;
 }
 
 .add-comment form button {
@@ -79,4 +78,5 @@
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
+  padding: 10px;
 }
