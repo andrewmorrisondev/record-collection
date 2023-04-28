@@ -7,7 +7,7 @@
 <div class="records-show-content">
   <%- include('../partials/record-card') %>
   
-  <% if (user) { %>
+  <% if (user || record.comments.length > 0) { %>
     <div class="comment-container">
       <%- include('../partials/show/comments') %>
       <%- include('../partials/show/add-comment') %>
