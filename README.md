@@ -143,7 +143,7 @@ Most partials come with their own CSS file. Structuring my EJS and CSS in this w
 ![Imgur](https://i.imgur.com/gDqX4Ww.png)
 
 ## Icebox User Stories
-[ ] - AA User I want to see an error message if 
+[ ] - AA User I want to see an error message if my album was not added so that I know I need to try again.
 
 [ ] - AA User I want a nav button that takes me to a 'for you' page that shows all records by other users that you follow.
 
