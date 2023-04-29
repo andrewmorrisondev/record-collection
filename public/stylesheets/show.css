@@ -52,7 +52,7 @@
 }
 
 .data-card {
-  width: clamp(10%, 40%, 80%);
+  width: clamp(250px, 500px, 80%);
   border: 10px solid rgb(0, 0, 0);
   border-radius: 2%;
   background-color: rgba(0, 0, 0, 0.5);

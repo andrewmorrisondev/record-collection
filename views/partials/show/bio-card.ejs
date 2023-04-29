@@ -1,3 +1,5 @@
-<div class="bio-card">
-  <p><%= record.bio %></p>
-</div>
+<% if (record.bio) { %>
+  <div class="bio-card">
+    <p><%= record.bio %></p>
+  </div>
+<% } %>
