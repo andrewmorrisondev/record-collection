@@ -206,3 +206,4 @@ Most partials come with their own CSS file. Structuring my EJS and CSS in this w
 * [Josh's Custom CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/)
 * [Icons from FontAwesome](https://fontawesome.com/icons)
 * [Maven Pro - Google Font](https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;900&display=swap)
+* [Fisher-Yates (aka Knuth) Shuffle](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array)
