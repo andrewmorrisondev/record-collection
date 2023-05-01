@@ -17,7 +17,6 @@ async function fetchAlbumInfo(artist, album) {
   
   try {
     const response = await axios.request(options)
-    console.log(response.data)
     const albumData = {
       title: response.data.album[0].strAlbum,
       artist: response.data.album[0].strArtist,

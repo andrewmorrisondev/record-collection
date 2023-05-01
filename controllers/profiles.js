@@ -4,7 +4,6 @@ import { Record } from "../models/record.js"
 function index(req, res) {
   Profile.find({})
   .then(profiles => {
-    console.log(profiles);
     res.render('profiles/index', {
       profiles,
       title: "Profiles"
