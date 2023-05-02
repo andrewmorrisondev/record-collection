@@ -60,7 +60,6 @@ async function fetchAlbumInfo(artist, album) {
   
   try {
     const response = await axios.request(options)
-    console.log(response.data)
     const albumData = {
       title: response.data.album[0].strAlbum,
       artist: response.data.album[0].strArtist,
@@ -69,10 +68,6 @@ async function fetchAlbumInfo(artist, album) {
       owner: undefined
     }
     return albumData
-  } catch (error) {
-    console.error(error)
-  }
-}
 ```
 ### Controller Integration
 In the controller, I call the `fetchAlbumInfo` function and, if an album exists, `persist` that data to the `record model`. Notice that because of the API call, I am calling `Record.create` with albumData as an argument
