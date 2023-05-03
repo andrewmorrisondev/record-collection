@@ -18,6 +18,17 @@
   background-color: black;
 }
 
+.welcome-message {
+  max-width: 90%;
+  border: 10px solid rgb(0, 0, 0);
+  border-radius: 2%;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
 .like-record {
   position: absolute;
   margin-left: -224px;

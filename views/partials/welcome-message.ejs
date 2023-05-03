@@ -1,0 +1,7 @@
+<div class="welcome-message">
+  <% if(!user) { %>
+    <p><strong>Hey you!</strong> Welcome to VYNL: a social record sharing platform. For the best expierence, login with Google. Pick a record and click <i class="fa-solid fa-circle-info"></i> to see more information.</p>
+  <% } else { %>
+    <p><strong><%= user.profile.name.split(' ')[0] %> !!</strong> omg hey how are you !? Try clicking <i class="fa-solid fa-plus f"></i> to add a record, or pick a record and click <i class="fa-solid fa-circle-info"></i> to see more information.</p>
+  <% } %>
+</div>

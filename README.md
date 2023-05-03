@@ -41,7 +41,7 @@ The following function, `fetchAlbumInfo` takes two arguments, (artist, album) fr
 <br>
 from `/src/services/api.js`
 
-```
+```js
 async function fetchAlbumInfo(artist, album) {
   console.log(artist, album)
   const options = {
@@ -74,7 +74,8 @@ In the controller, I call the `fetchAlbumInfo` function and, if an album exists,
 <br>
 <br>
 from `/controllers/records.js`
-```
+
+```js
 function create(req, res) {
   fetchAlbumInfo(req.body.artist, req.body.title)
   .then(albumData => {
@@ -98,7 +99,7 @@ Keeping my code `DRY` has become a point of pride, and its something that I am c
 <br>
 from `/views/records/show.ejs`
 
-```
+```js
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/show.css"/>
 <link rel="stylesheet" href="/stylesheets/partials/record-cards.css"/>
