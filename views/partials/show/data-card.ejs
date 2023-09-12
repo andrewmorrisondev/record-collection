@@ -11,6 +11,9 @@
   <% if (record.mood) { %>
     <p><strong>Mood:</strong><br><%= record.mood %></p>
   <% } %>
+  <% if (record.year) { %>
+    <p><strong>Year:</strong><br><%= record.year %></p>
+  <% } %>
   <p><strong>Added by: </strong><br><%= record.owner.name %></p>
   <p><strong>Likes:</strong><br><%= record.likes.length %></p>
 </div>
